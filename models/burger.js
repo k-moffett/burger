@@ -1,15 +1,25 @@
-const ORM = require('../config/orm.js')
+const orm = require('../config/orm.js')
+// * Inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
+const burger = (path, data) => {
 
-const burger_model = () => {
+  switch (path) {
 
-// * In `models`, make a `burger.js` file.
+  case "/":
+    return orm.selectAll()
+  break;
 
-// * Inside `burger.js`, import `orm.js` into `burger.js`
+  case "/order_burger":
+    orm.insertOne(data)
+  break;
 
-// * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
+  case "/update_burger":
+    orm.updateOne()
+  break;
 
-// * Export at the end of the `burger.js` file.
+  default:
+    return 'Not Found'
+  }
 
 }//end burger model
 
-module.exports = burger_model
+module.exports = burger

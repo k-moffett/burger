@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      
+      <h1>Available Burgers</h1>
+      {{#each home}}
+        <div class=card>
+          <div class="card-body">
+            <p class="id">{{this.id}}</p> <p class="burger_name">{{this.burger_name}}</p> 
+            <button type="button" class="btn btn-primary btn-sm update_burger">Small button</button>
+          </div>
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+</div>

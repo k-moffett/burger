@@ -1,28 +1,32 @@
-const database = require('./connection.js')
+const connection = require('./connection.js')
+connection.connect();
 
-const ORM = () => {
+let home
+connection.query('SELECT * FROM burgers', function (error, results, fields) {
+  if (error) throw error;
+  home = results
+});
 
+const orm = {
+  
   selectAll() {
-    connection.query('SELECT * FROM burgers', function (error, results, fields) {
-      if (error) throw error;
-      console.log(results);
-    });
-  }
+    return home
+  },
 
-  insertOne() {
-    connection.query(`INSERT INTO burgers (burger_name, devoured) VALUES ("${/*variable for name*/}", false)`, function (error, results, fields) {
-      if (error) throw error;
-      console.log(results);
+  insertOne(data) {
+    connection.query(`INSERT INTO burgers (burger_name, devoured) VALUES ("${data}", false)`, function (error, results, fields) {
+       if (error) throw error;
     });
-  }
+  },
 
   updateOne() {
-    connection.query(`UPDATE burgers SET devoured = true WHERE ${/* variable for burger id when clicked*/}`, function (error, results, fields) {
-      if (error) throw error;
-      console.log(results);
-    });
-  }
+    // connection.query(`UPDATE burgers SET devoured = true WHERE id = ${this.id}`, function (error, results, fields) {
+    //   if (error) throw error;
+    // });
+    console.log('Made it to updateONE');
+
+  },
 
 }
 
-module.exports = ORM
+module.exports = orm

@@ -15,7 +15,7 @@
 
       <form>
         <div class="form-group">
-          <label for="wish">what type of burger would you like?</label>
+          <label for="wish">What type of burger would you like?</label>
           <input type="text" class="form-control" id="burger">
         </div>
           <button type="submit" class="btn btn-primary" id="submit">Order Burger</button>
@@ -36,17 +36,30 @@ $('#submit').on('click', () => {
    event.preventDefault()
    let burger = $('#burger').val().trim()
    console.log(burger)
-  //$.ajax({
-  //  type: 'POST',
-  //  url: '/',
-  //  dataType: 'json',
-  //  data: {data: wish.toString()},
-  //  }).then((res) => {
-  //    
-  //    })
-       
+  $.ajax({
+    type: 'POST',
+    url: '/order_burger',
+    dataType: 'json',
+    data: {data: burger.toString()},
+    }).then((res) => {
+        window.location.href = res.redirect
+    })
    $('#burger').val('')
 })
+
+$('.update_burger').on('click', () => {
+   event.preventDefault()
+   console.log($('.id').text(), $('.burger_name').text())
+
+  $.ajax({
+    type: 'PUT',
+    url: '/update_burger',
+    dataType: 'json',
+    data: {}
+    })
+    
+})
+
 </script>
 </body>
 </html>
