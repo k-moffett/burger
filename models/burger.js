@@ -13,7 +13,7 @@ const burger = (path, data) => {
   break;
 
   case "/update_burger":
-    orm.updateOne()
+    orm.updateOne(data)
   break;
 
   default:

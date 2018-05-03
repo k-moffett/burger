@@ -14,7 +14,8 @@ const router = (app, fs) => {
     });
 
     app.put('/update_burger', function(req, res){
-        burger('/update_burger')
+        let data = req.body.data
+        burger('/update_burger', data)
     });
 
 }

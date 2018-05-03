@@ -19,12 +19,11 @@ const orm = {
     });
   },
 
-  updateOne() {
+  updateOne(data) {
     // connection.query(`UPDATE burgers SET devoured = true WHERE id = ${this.id}`, function (error, results, fields) {
     //   if (error) throw error;
     // });
-    console.log('Made it to updateONE');
-
+    console.log(data, 'orm.js');//TEMP DATA is defined in main.handlebars PUT call
   },
 
 }
