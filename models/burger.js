@@ -5,10 +5,7 @@ const burger = (path, data) => {
   switch (path) {
 
   case "/":
-    orm.selectAll().then((response) => {
-      console.log(response, 'burger.js')
-      home = response
-    })
+    return orm.selectAll()
   break;
 
   case "/order_burger":

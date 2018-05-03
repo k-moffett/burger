@@ -49,9 +49,11 @@ $('#submit').on('click', () => {
 
 $('.update_burger').on('click', () => {
    event.preventDefault()
-   let temp = 'TEMP DATA'
-   console.log($('.id').text(), $('.burger_name').text())
+   console.log($(this).text())
 
+   
+   
+   let temp = 'temp-data'
   $.ajax({
     type: 'PUT',
     url: '/update_burger',

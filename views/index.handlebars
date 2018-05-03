@@ -1,17 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-md">
+    <div class="col-sm-4">
       
-      <h1>Available Burgers</h1>
+      <h5>Available Burgers</h5>
       {{#each home}}
-        <div class=card>
-          <div class="card-body">
-            <p class="id">{{this.id}}</p> <p class="burger_name">{{this.burger_name}}</p> 
-            <button type="button" class="btn btn-primary btn-sm update_burger">Small button</button>
+          <div class=card>
+            <div class="card-body">
+              <p>{{this.id}}. {{this.burger_name}}</p> 
+              <button type="button" id="{{this.id}}" class="btn btn-primary btn-sm update_burger">Eat Burger</button>
+            </div>
           </div>
-        </div>
       {{/each}}
 
     </div>
+
+    <div class="col-sm-4">
+    </div>
+
+    <div class="col-sm-4">
+      <h5>Eaten Burgers</h5>
+      {{#each eaten}}
+          <div class=card>
+            <div class="card-body">
+              <p>{{this.id}}. {{this.burger_name}}</p> 
+            </div>
+          </div>
+      {{/each}}
+    </div>
+
   </div>
 </div>

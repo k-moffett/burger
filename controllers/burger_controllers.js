@@ -1,10 +1,16 @@
 const burger = require('../models/burger.js')
 
-const router = (app, fs) => {
+const router = (app) => {
 
     app.get('/', function(req, res){
-      const home = burger('/')
-      res.render('index', {home});
+      burger('/').then((home) => {
+        let eaten = home.filter(burger => burger.devoured === 1)
+        home.map((item, index) => {if (item.devoured === 1){home.splice(index, 1)}
+        })
+        console.log(home)
+      res.render('index', {home, eaten});
+      })
+      
     });
 
     app.post('/order_burger', function(req, res){
