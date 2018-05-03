@@ -1,11 +1,14 @@
 const orm = require('../config/orm.js')
-// * Inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
+
 const burger = (path, data) => {
 
   switch (path) {
 
   case "/":
-    return orm.selectAll()
+    orm.selectAll().then((response) => {
+      console.log(response, 'burger.js')
+      home = response
+    })
   break;
 
   case "/order_burger":
@@ -20,6 +23,6 @@ const burger = (path, data) => {
     return 'Not Found'
   }
 
-}//end burger model
+}
 
 module.exports = burger

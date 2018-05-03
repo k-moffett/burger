@@ -1,16 +1,19 @@
 const connection = require('./connection.js')
 connection.connect();
 
-let home
-connection.query('SELECT * FROM burgers', function (error, results, fields) {
-  if (error) throw error;
-  home = results
-});
-
 const orm = {
   
-  selectAll() {
-    return home
+  selectAll(results) {
+    return new Promise((resolve, reject) => {
+      connection.query('SELECT * FROM burgers', function (error, results, fields){
+        if (error) {
+          reject(error)
+        } else {
+          resolve(results)
+        }
+      })
+    })
+
   },
 
   insertOne(data) {
