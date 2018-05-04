@@ -23,10 +23,15 @@ const orm = {
   },
 
   updateOne(data) {
-    // connection.query(`UPDATE burgers SET devoured = true WHERE id = ${this.id}`, function (error, results, fields) {
-    //   if (error) throw error;
-    // });
-    console.log(data, 'orm.js');//TEMP DATA is defined in main.handlebars PUT call
+      return new Promise((resolve, reject) => {
+      connection.query(`UPDATE burgers SET devoured = true WHERE id = ${data}`, function (error, results, fields){
+        if (error) {
+          reject(error)
+        } else {
+          resolve(results)
+        }
+      })
+    })
   },
 
 }

@@ -47,20 +47,18 @@ $('#submit').on('click', () => {
    $('#burger').val('')
 })
 
+
 $('.update_burger').on('click', () => {
    event.preventDefault()
-   console.log($(this).text())
-
-   
-   
-   let temp = 'temp-data'
+   let target = event.target
   $.ajax({
     type: 'PUT',
     url: '/update_burger',
     dataType: 'json',
-    data: {data: temp}
+    data: {data: target.id}
+    }).then((res) => {
+        window.location.href = res.redirect
     })
-    
 })
 
 </script>
