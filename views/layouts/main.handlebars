@@ -42,7 +42,7 @@ $('#submit').on('click', () => {
     dataType: 'json',
     data: {data: burger.toString()},
     }).then((res) => {
-        window.location.href = res.redirect
+        window.location.href = res.redirect || 'http://localhost:8080/'
     })
    $('#burger').val('')
 })
@@ -57,7 +57,7 @@ $('.update_burger').on('click', () => {
     dataType: 'json',
     data: {data: target.id}
     }).then((res) => {
-        window.location.href = res.redirect
+        window.location.href = res.redirect || 'http://localhost:8080/'
     })
 })
 

@@ -19,13 +19,13 @@ const router = (app) => {
     app.post('/order_burger', function(req, res){
       const data = req.body.data
       const order = burger('/order_burger', data)
-      res.send({redirect: 'http://localhost:8080/'});
+      res.send({redirect: 'https://hidden-river-13796.herokuapp.com/'});
     });
 
     app.put('/update_burger', function(req, res){
         let data = req.body.data
         burger('/update_burger', data)
-        res.send({redirect: 'http://localhost:8080/'});
+        res.send({redirect: 'https://hidden-river-13796.herokuapp.com/'});
     });
 
 }
