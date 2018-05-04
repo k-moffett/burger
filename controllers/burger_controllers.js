@@ -5,13 +5,9 @@ const router = (app) => {
     app.get('/', function(req, res){
       burger('/')
       .then((home) => {
+        let not_eaten = home.filter(burger => burger.devoured === 0)
         let eaten = home.filter(burger => burger.devoured === 1)
-        home.map((item, index) => {
-          if (item.devoured === 1){home.splice(index, 1)}
-        })
-        console.log(home, 'HOME')
-        console.log(eaten, 'EATEN')
-        res.render('index', {home, eaten});
+        res.render('index', {not_eaten, eaten});
       })
       
     });
